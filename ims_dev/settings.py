@@ -1,0 +1,187 @@
+"""
+Django settings for redcross project.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/1.7/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/1.7/ref/settings/
+"""
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
+import json
+from django.core.exceptions import ImproperlyConfigured
+from django.conf.global_settings import EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER,\
+    EMAIL_HOST_PASSWORD
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+# JSON secrets module
+with open(os.path.join(BASE_DIR, '.ims_dev_secret.json')) as f:
+    secrets=json.loads(f.read())
+
+def get_secret(setting, secrets=secrets):
+    """
+    get the secret setting or return explicit exception
+    """
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {0} environment variable in the secret file".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
+
+PICTURE_SIZE = 600
+THUMBNAIL_SIZE = 90
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = get_secret('ims_dev_SECRET')
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+TEMPLATE_DEBUG = True
+
+ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['arc.ulstercorpsdev.org',
+#                 '127.0.0.1',]
+
+
+# Application definition
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'ims',
+)
+
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+# add request so we can access request url in 404 handler page
+TEMPLATE_CONTEXT_PROCESSORS = (
+"django.contrib.auth.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.core.context_processors.static",
+"django.core.context_processors.tz",
+"django.contrib.messages.context_processors.messages",
+"django.core.context_processors.request"
+)
+
+ROOT_URLCONF = 'ims_dev.urls'
+
+WSGI_APPLICATION = 'ims_dev.wsgi.application'
+
+ 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'robgroves0@gmail.com'
+EMAIL_HOST_PASSWORD = 'ngn6rclmZ2GN'
+EMAIL_USE_SSL = True
+
+# Database
+# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': get_secret('ims_dev_DB'),
+        'USER': get_secret('ims_dev_DB_USER'),
+        'PASSWORD': get_secret('ims_dev_DB_PASS'),
+        'HOST': 'localhost',
+    }
+}
+
+# Internationalization
+# https://docs.djangoproject.com/en/1.7/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'US/Eastern'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+LOGIN_URL='/accounts/login'
+# 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = 'robgroves0@gmail.com'
+# EMAIL_HOST_PASSWORD = 'ngn6rclmZ2GN'
+# EMIL_USE_TLS = True
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.7/howto/static-files/
+STATIC_ROOT = '/var/www/html/arc/ims_dev/static_root'
+MEDIA_ROOT = '/var/www/html/arc/ims_dev/uploads'
+#MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
+MEDIA_URL = '/uploads/'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/static',
+    #'ims/static',
+)
+
+LOG_FILE=os.path.join(BASE_DIR, 'ims_dev.log')
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),
+                 '/home/grovesr/.virtualenvs/rims/local/lib/python2.7/site-packages/ims/templates',
+                 #'ims/templates',
+                 ]
+# DJANGO_LOG_LEVEL=DEBUG
+# # Logging setup
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+#             'datefmt' : "%d/%b/%Y %H:%M:%S"
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': os.path.join(BASE_DIR, 'redcross.log'),
+#             'formatter': 'verbose'
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers':['file'],
+#             'propagate': True,
+#             'level':'DEBUG',
+#         },
+#         'ims': {
+#             'handlers': ['file'],
+#             'level': 'DEBUG',
+#         },
+#     }
+# }

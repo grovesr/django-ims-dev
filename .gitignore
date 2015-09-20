@@ -1,0 +1,11 @@
+.*_secret*
+*xls*
+Backups/*
+*gz
+*~
+.*~
+tempCommitComments.txt
+static_root/
+uploads/
+*pyc
+*log
