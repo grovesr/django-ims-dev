@@ -36,7 +36,7 @@ PICTURE_SIZE = 600
 THUMBNAIL_SIZE = 90
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_secret('ims_dev_SECRET')
+SECRET_KEY = get_secret('IMS_DEV_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'ims_dev.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': get_secret('ims_dev_DB'),
-        'USER': get_secret('ims_dev_DB_USER'),
-        'PASSWORD': get_secret('ims_dev_DB_PASS'),
+        'NAME': get_secret('IMS_DEV_DB'),
+        'USER': get_secret('IMS_DEV_DB_USER'),
+        'PASSWORD': get_secret('IMS_DEV_DB_PASS'),
         'HOST': 'localhost',
     }
 }

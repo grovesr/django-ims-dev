@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>redcross-eny</name>
+	<name>ims-dev</name>
 	<comment></comment>
 	<projects>
 		<project>django-ims</project>

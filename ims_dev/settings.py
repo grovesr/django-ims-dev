@@ -38,7 +38,7 @@ PICTURE_SIZE = 600
 THUMBNAIL_SIZE = 90
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_secret('ims_dev_SECRET')
+SECRET_KEY = get_secret('IMS_DEV_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -87,7 +87,7 @@ ROOT_URLCONF = 'ims_dev.urls'
 
 WSGI_APPLICATION = 'ims_dev.wsgi.application'
 
- 
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
@@ -101,9 +101,9 @@ EMAIL_USE_SSL = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': get_secret('ims_dev_DB'),
-        'USER': get_secret('ims_dev_DB_USER'),
-        'PASSWORD': get_secret('ims_dev_DB_PASS'),
+        'NAME': get_secret('IMS_DEV_DB'),
+        'USER': get_secret('IMS_DEV_DB_USER'),
+        'PASSWORD': get_secret('IMS_DEV_DB_PASS'),
         'HOST': 'localhost',
     }
 }
@@ -122,7 +122,7 @@ USE_L10N = True
 USE_TZ = True
 
 LOGIN_URL='/accounts/login'
-# 
+#
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 465
