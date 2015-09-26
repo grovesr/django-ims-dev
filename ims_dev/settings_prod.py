@@ -124,7 +124,7 @@ EMAIL_USE_TLS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = '/home3/ulsterc3/public_html/subdomains/ims/dev/eny/static'
+STATIC_ROOT = '/home3/ulsterc3/public_html/subdomains/ims/dev/static'
 MEDIA_ROOT = '/home3/ulsterc3/public_html/subdomains/ims/dev/uploads'
 MEDIA_URL = '/uploads/'
 STATIC_URL = '/static/'
