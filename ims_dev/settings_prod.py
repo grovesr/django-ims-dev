@@ -116,10 +116,10 @@ LOGIN_URL='/accounts/login'
 #
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = get_secret('IMS_DEV_EMAIL_HOST')
-EMAIL_PORT = 587
+EMAIL_PORT = 465
 EMAIL_HOST_USER = get_secret('IMS_DEV_EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_secret('IMS_DEV_EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 
 
 # Static files (CSS, JavaScript, Images)
