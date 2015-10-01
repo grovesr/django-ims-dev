@@ -13,6 +13,7 @@ from django.core.exceptions import ImproperlyConfigured
 import os
 import json
 import re
+from getpass import getuser
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_NAME = BASE_DIR.rsplit(os.sep,1)[-1]
@@ -140,10 +141,13 @@ ADMINS = (('Rob','grovesr1@yahoo.com'),)
 MANAGERS = (('Rob','grovesr1@yahoo.com'),)
 EMAIL_SUBJECT_PREFIX = '[IMS-DEV]'
 
-DJANGO_LOG_FILE=os.path.join(BASE_DIR, 'log/django.log')
-IMS_LOG_FILE=os.path.join(BASE_DIR, 'log/ims.log')
+DJANGO_LOG_FILE=os.path.join(BASE_DIR, 'log/' + getuser()+ '_django.log')
+IMS_LOG_FILE=os.path.join(BASE_DIR, 'log/' + getuser()+ '_ims.log')
+LOG_FILES= (
+            DJANGO_LOG_FILE,
+            IMS_LOG_FILE,
+            )
 
-DJANGO_LOG_LEVEL=DEBUG
 
 IGNORABLE_404_URLS = (
     re.compile(r'^/apple-touch-icon.*\.png$'),
@@ -166,7 +170,7 @@ LOGGING = {
                    },
     'handlers': {
                  'django_file': {
-                          'level': 'DEBUG',
+                          'level': 'INFO',
                           'class': 'logging.handlers.RotatingFileHandler',
                           'filename': DJANGO_LOG_FILE,
                           'formatter': 'verbose',
