@@ -40,7 +40,7 @@ THUMBNAIL_SIZE = 90
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_secret('IMS_DEV_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
