@@ -1,0 +1,5 @@
+Version 1.2.0:
+* f4d8220 add admin and version template vars to render contexts, also remove unused vars and replace unsused tuple var retu
+* 7f1446d add template vars for adminName, adminEmail, siteVersion, imsVersion
+* 0e19a58 add settings for VERSION, SITE_VERSION, and SERVER_EMAIL
+* 0e0eff3 feat:add VERSION so we have a single source of version information
