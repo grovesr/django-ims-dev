@@ -19,17 +19,17 @@ except AttributeError:
     imsVersion=''
 def home(request):
     return render(request,'base/base.html',{'nav_home':1,
-                                            'adminName':settings.SITE_ADMIN[0],
-                                            'adminEmail':settings.SITE_ADMIN[1],
-                                            'siteVersion':settings.SITE_VERSION,
-                                            'imsVersion':settings.IMS_VERSION,})
+                                            'adminName':adminName,
+                                            'adminEmail':adminEmail,
+                                            'siteVersion':siteVersion,
+                                            'imsVersion':imsVersion,})
 
 def redcross_help(request):
     return render(request,'base/redcross_help.html',{'nav_help':1,
-                                            'adminName':settings.SITE_ADMIN[0],
-                                            'adminEmail':settings.SITE_ADMIN[1],
-                                            'siteVersion':settings.SITE_VERSION,
-                                            'imsVersion':settings.IMS_VERSION,})
+                                            'adminName':adminName,
+                                            'adminEmail':adminEmail,
+                                            'siteVersion':siteVersion,
+                                            'imsVersion':imsVersion,})
 
 def handler404(request):
     warningMessage = '''Oops! It looks like you might be lost.<br />
