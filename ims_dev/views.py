@@ -1,7 +1,22 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.conf import settings
-
+try:
+    adminName = settings.SITE_ADMIN[0]
+except AttributeError:
+    adminName=''
+try:
+    adminEmail = settings.SITE_ADMIN[1]
+except AttributeError:
+    adminEmail=''
+try:
+    siteVersion = settings.SITE_VERSION
+except AttributeError:
+    siteVersion=''
+try:
+    imsVersion = settings.IMS_VERSION
+except AttributeError:
+    imsVersion=''
 def home(request):
     return render(request,'base/base.html',{'nav_home':1,
                                             'adminName':settings.SITE_ADMIN[0],
