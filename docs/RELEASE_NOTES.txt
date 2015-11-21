@@ -7,3 +7,5 @@
 * 6fcd8b6 (HEAD, master) feat: add date and comments to version information
 12/11/2015 Version 1.4.1:
 * 7c52c7b (HEAD, master) add help on product code explanation and generation
+21/11/2015 Version 1.4.3:
+* 03a30f1 (HEAD, master) add TEMP_DIR to settings
