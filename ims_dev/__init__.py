@@ -4,4 +4,5 @@
 #VERSION=('1.3.0','02/11/2015','add version, admin. server settings')
 #VERSION=('1.4.0','10/11/2015','allow auto generation of product codes. Add date and comments to version')
 #VERSION=('1.4.1','10/11/2015','add help on product code explanation and generation')
-VERSION=('1.4.3','21/11/2015','add TEMP_DIR setting')
+#VERSION=('1.4.3','21/11/2015','add TEMP_DIR setting')
+VERSION=('1.5.0','26/12/2015','feat: Update for paging and small style updates.')

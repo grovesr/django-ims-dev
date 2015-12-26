@@ -9,3 +9,5 @@
 * 7c52c7b (HEAD, master) add help on product code explanation and generation
 21/11/2015 Version 1.4.3:
 * 03a30f1 (HEAD, master) add TEMP_DIR to settings
+26/11/2015 Version 1.5.0:
+* 16c75dc (HEAD, master) feat: Update for paging and small style updates.
