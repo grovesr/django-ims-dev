@@ -13,3 +13,5 @@
 * 16c75dc (HEAD, master) feat: Update for paging and small style updates.
 28/12/2015 Version 1.6.0:
 * 122a2e9 (HEAD, master) Updated to Django 1.9 from 1.7
+29/12/2015 Version 1.6.1:
+* 5ea2097 (HEAD, master) feat: Add password management features
