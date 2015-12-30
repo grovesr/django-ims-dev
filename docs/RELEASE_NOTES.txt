@@ -14,5 +14,6 @@
 28/12/2015 Version 1.6.0:
 * 122a2e9 (HEAD, master) Updated to Django 1.9 from 1.7
 29/12/2015 Version 1.6.1:
-* 262fac3 (HEAD, master) fix: Add session messages to registration views/templates
-* aacf61d (origin/master) feat: Add password management features
+* 563a4c9 (HEAD, master) Add DEFAULT_FROM_EMAIL to settings. Add Forgot Password link to login form.
+* 5bcbf6c (origin/master) fix: Add session messages to registration views/templates
+* aacf61d feat: Add password management features
