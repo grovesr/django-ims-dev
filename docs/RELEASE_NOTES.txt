@@ -21,3 +21,5 @@
 ba3d14c (HEAD, master) fix: logout issue with non-admin users
 22/01/2016 Version 1.6.3:
 * 73c3562 (HEAD, master) feat: Remove IMS page, it's not used.  Redirect to Home if IMS page requested.
+09/07/2016 Version 1.6.4:
+fix: Replace robert.groves@redcross.org with robgroves0@gmail.com. Add secret settings for e-mail config.
